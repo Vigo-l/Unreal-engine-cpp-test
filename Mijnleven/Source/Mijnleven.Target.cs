@@ -3,13 +3,13 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class MijnlevenTarget : TargetRules
+public class MijnLevenTarget : TargetRules
 {
-	public MijnlevenTarget(TargetInfo Target) : base(Target)
+	public MijnLevenTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V6;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_7;
-		ExtraModuleNames.Add("Mijnleven");
+		ExtraModuleNames.Add("MijnLeven");
 	}
 }

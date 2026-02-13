@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class Mijnleven : ModuleRules
+public class MijnLeven : ModuleRules
 {
-	public Mijnleven(ReadOnlyTargetRules Target) : base(Target)
+	public MijnLeven(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
