@@ -3,7 +3,9 @@
 
 #include "MyGameModeBase.h"
 
+#include "MyPlayer.h"
+
 AMyGameModeBase::AMyGameModeBase()
 {
-	// DefaultPawnClass = ;
+	 DefaultPawnClass = AMyPlayer::StaticClass();
 }
