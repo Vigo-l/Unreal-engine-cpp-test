@@ -6,8 +6,6 @@
 #include "GameFramework/Pawn.h"
 #include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
-#include "InputMappingContext.h"
-#include "InputActionValue.h"
 #include "MyPlayer.generated.h"
 
 
@@ -34,22 +32,10 @@ protected:
 
 public:
 	
-	//EnhancedInputAction Mappings
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= "Enhanced Input") 
-	UInputMappingContext * InputMappingContext;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= "Enhanced Input")
-	UInputAction* inputToMove;
-	
-	UFUNCTION()
-	void EnhancedInputMove(const FInputActionValue& Value);
 	
 	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };
