@@ -26,7 +26,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Category="Weapon", meta=(AllowPrivateAccess="true"))
 	UStaticMeshComponent* StaticMeshComponent;
 
 };

@@ -12,7 +12,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffd88e7e-d1f7-4b24-9cb7-cd8e64355809" name="Changes" comment="" />
+    <list default="true" id="ffd88e7e-d1f7-4b24-9cb7-cd8e64355809" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/BP_StaticActor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Weapon.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/M1911_AO.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/M1911_Albedo.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/M1911_Metalness.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/M1911_Normal.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/M1911_Roughness.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/M_WeaponMat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Levels/LVL_Level01/E/VT/O58BPE40JD7W54D0THF24I.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/m_1911_base.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/BaseEnemyCharacter.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/BaseEnemyCharacter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/BasePlayerCharacter.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/BasePlayerCharacter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/Bullet.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/Bullet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/MyCharacter.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/MyCharacter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/Weapon.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MijnLeven/Weapon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MijnLeven/MoveComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MijnLeven/MoveComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/MijnLeven/MoveComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/MijnLeven/MoveComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +209,7 @@
       <workItem from="1771937332123" duration="79000" />
       <workItem from="1772789971490" duration="2276000" />
       <workItem from="1773151181492" duration="885000" />
-      <workItem from="1773154256336" duration="2171000" />
+      <workItem from="1773154256336" duration="1823000" />
     </task>
     <servers />
   </component>
