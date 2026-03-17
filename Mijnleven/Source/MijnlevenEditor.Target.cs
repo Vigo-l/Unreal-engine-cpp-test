@@ -1,15 +1,14 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
-using UnrealBuildTool;
+using System;
 using System.Collections.Generic;
+using UnrealBuildTool;
 
-public class MijnLevenEditorTarget : TargetRules
+public class MijnlevenEditorTarget : TargetRules
 {
-	public MijnLevenEditorTarget( TargetInfo Target) : base(Target)
-	{
-		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V6;
-		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_7;
-		ExtraModuleNames.Add("MijnLeven");
-	}
+    public MijnlevenEditorTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Editor;
+        DefaultBuildSettings = BuildSettingsVersion.V6;
+
+        ExtraModuleNames.AddRange(new string[] { "Mijnleven" });
+    }
 }
