@@ -1,6 +1,9 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "MijnLeven.h"
+#include "Mijnleven.h"
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, MijnLeven, "MijnLeven" );
+IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Mijnleven, "Mijnleven" );
+
+DEFINE_LOG_CATEGORY(LogMijnleven)
+ 
