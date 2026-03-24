@@ -9,18 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95f6dfc6-abb3-4471-9aac-05e7aaeddcf3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/BP_Weapon.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TopDown/Blueprints/BP_TopDownGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TopDown/Blueprints/BP_TopDownGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TopDown/Input/IMC_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TopDown/Input/IMC_Default.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TopDown/Lvl_TopDown.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TopDown/Lvl_TopDown.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../~$real engine Cpp problems documented.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenGameMode.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +106,7 @@
       <workItem from="1774355705522" duration="901000" />
       <workItem from="1774358238791" duration="304000" />
       <workItem from="1774363890828" duration="135000" />
+      <workItem from="1774364925095" duration="138000" />
     </task>
     <servers />
   </component>
