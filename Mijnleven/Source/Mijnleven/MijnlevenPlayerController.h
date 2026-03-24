@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 //#include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
+#include "InputActionValue.h"
 #include "MijnlevenPlayerController.generated.h"
 
 class UNiagaraSystem;
@@ -24,30 +25,14 @@ class AMijnlevenPlayerController : public APlayerController
 	GENERATED_BODY()
 
 protected:
-
-	/** Component used for moving along a NavMesh path. */
-	UPROPERTY(VisibleDefaultsOnly, Category = AI)
-	TObjectPtr<UPathFollowingComponent> PathFollowingComponent;
-
-	/** Time Threshold to know if it was a short press */
-	UPROPERTY(EditAnywhere, Category="Input")
-	float ShortPressThreshold;
-
-	/** FX Class that we will spawn when clicking */
-	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UNiagaraSystem> FXCursor;
-
 	/** MappingContext */
 	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UInputMappingContext> DefaultMappingContext;
+	TObjectPtr<UInputMappingContext> DefaultMappingContext; //gets the default input context
 	
-	/** Jump Input Action */
-	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UInputAction> SetDestinationClickAction;
+	UPROPERTY(EditAnywhere, Category="Input") 
+	TObjectPtr<UInputAction> MovementInput; //create the movement input that calls the function
+	
 
-	/** Jump Input Action */
-	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UInputAction> SetDestinationTouchAction;
 
 	/** True if the controlled character should navigate to the mouse cursor. */
 	uint32 bMoveToMouseCursor : 1;
@@ -65,21 +50,16 @@ public:
 
 	/** Constructor */
 	AMijnlevenPlayerController();
-
+	
 protected:
 
 	/** Initialize input bindings */
 	virtual void SetupInputComponent() override;
 	
-	/** Input handlers */
-	void OnInputStarted();
-	void OnSetDestinationTriggered();
-	void OnSetDestinationReleased();
-	void OnTouchTriggered();
-	void OnTouchReleased();
-
-	/** Helper function to get the move destination */
-	void UpdateCachedDestination();
+	UPROPERTY(EditAnywhere)
+	float speed; // variable to change the speed
+	
+	void Move(const FInputActionValue &Value);//function that gets called when the move input is triggers
 };
 
 

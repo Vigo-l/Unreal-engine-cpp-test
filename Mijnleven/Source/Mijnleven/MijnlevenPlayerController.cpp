@@ -16,17 +16,7 @@
 
 AMijnlevenPlayerController::AMijnlevenPlayerController()
 {
-	bIsTouch = false;
-	bMoveToMouseCursor = false;
-
-	// create the path following comp
-	PathFollowingComponent = CreateDefaultSubobject<UPathFollowingComponent>(TEXT("Path Following Component"));
-
-	// configure the controller
-	bShowMouseCursor = true;
-	DefaultMouseCursor = EMouseCursor::Default;
-	CachedDestination = FVector::ZeroVector;
-	FollowTime = 0.f;
+	speed = 1.0f;
 }
 
 void AMijnlevenPlayerController::SetupInputComponent()
@@ -46,17 +36,7 @@ void AMijnlevenPlayerController::SetupInputComponent()
 		// Set up action bindings
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
 		{
-			// Setup mouse input events
-			EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &AMijnlevenPlayerController::OnInputStarted);
-			EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Triggered, this, &AMijnlevenPlayerController::OnSetDestinationTriggered);
-			EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &AMijnlevenPlayerController::OnSetDestinationReleased);
-			EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Canceled, this, &AMijnlevenPlayerController::OnSetDestinationReleased);
-
-			// Setup touch input events
-			EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Started, this, &AMijnlevenPlayerController::OnInputStarted);
-			EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Triggered, this, &AMijnlevenPlayerController::OnTouchTriggered);
-			EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Completed, this, &AMijnlevenPlayerController::OnTouchReleased);
-			EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Canceled, this, &AMijnlevenPlayerController::OnTouchReleased);
+			EnhancedInputComponent->BindAction(MovementInput, ETriggerEvent::Triggered, this, &AMijnlevenPlayerController::Move);
 		}
 		else
 		{
@@ -65,74 +45,16 @@ void AMijnlevenPlayerController::SetupInputComponent()
 	}
 }
 
-void AMijnlevenPlayerController::OnInputStarted()
-{
-	StopMovement();
 
-	// Update the move destination to wherever the cursor is pointing at
-	UpdateCachedDestination();
-}
-
-void AMijnlevenPlayerController::OnSetDestinationTriggered()
+//Move the character
+void AMijnlevenPlayerController::Move(const FInputActionValue &Value)
 {
-	// We flag that the input is being pressed
-	FollowTime += GetWorld()->GetDeltaSeconds();
-	
-	// Update the move destination to wherever the cursor is pointing at
-	UpdateCachedDestination();
-	
-	// Move towards mouse pointer or touch
-	APawn* ControlledPawn = GetPawn();
-	if (ControlledPawn != nullptr)
+	FVector2D MovementVector = Value.Get<FVector2D>(); //Transform the input action value to a vector 2d
+	FVector InputVector = FVector(MovementVector, 0 ); // Transform the vector 2d to a vector 3d for the 3d space
+
+	if (APawn* ControlledPawn = GetPawn())
 	{
-		FVector WorldDirection = (CachedDestination - ControlledPawn->GetActorLocation()).GetSafeNormal();
-		ControlledPawn->AddMovementInput(WorldDirection, 1.0, false);
+		ControlledPawn->AddMovementInput(InputVector, speed, false); // add the input with the speed to the character movement
 	}
 }
 
-void AMijnlevenPlayerController::OnSetDestinationReleased()
-{
-	// If it was a short press
-	if (FollowTime <= ShortPressThreshold)
-	{
-		// We move there and spawn some particles
-		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, CachedDestination);
-		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, FXCursor, CachedDestination, FRotator::ZeroRotator, FVector(1.f, 1.f, 1.f), true, true, ENCPoolMethod::None, true);
-	}
-
-	FollowTime = 0.f;
-}
-
-// Triggered every frame when the input is held down
-void AMijnlevenPlayerController::OnTouchTriggered()
-{
-	bIsTouch = true;
-	OnSetDestinationTriggered();
-}
-
-void AMijnlevenPlayerController::OnTouchReleased()
-{
-	bIsTouch = false;
-	OnSetDestinationReleased();
-}
-
-void AMijnlevenPlayerController::UpdateCachedDestination()
-{
-	// We look for the location in the world where the player has pressed the input
-	FHitResult Hit;
-	bool bHitSuccessful = false;
-	if (bIsTouch)
-	{
-		bHitSuccessful = GetHitResultUnderFinger(ETouchIndex::Touch1, ECollisionChannel::ECC_Visibility, true, Hit);
-	}
-	else
-	{
-		bHitSuccessful = GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, true, Hit);
-	}
-
-	// If we hit a surface, cache the location
-	if (bHitSuccessful)
-	{
-		CachedDestination = Hit.Location;
-	}
-}

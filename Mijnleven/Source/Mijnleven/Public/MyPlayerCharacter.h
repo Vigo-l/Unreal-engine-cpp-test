@@ -7,20 +7,36 @@
 #include "GameFramework/Character.h"
 #include "MyPlayerCharacter.generated.h"
 
+class USpringArmComponent;
+class UCameraComponent;
+
 UCLASS()
 class MIJNLEVEN_API AMyPlayerCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+	
+
+	
 public:
 	// Sets default values for this character's properties
 	AMyPlayerCharacter();
+	
+
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	
 	void Shoot();
+	
+	/** Camera boom spring arm */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	USpringArmComponent* SpringArm;
+
+	/** Player Camera */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UCameraComponent* Camera;
 	
 	UPROPERTY(EditAnywhere)
 	UChildActorComponent* Weapon;
