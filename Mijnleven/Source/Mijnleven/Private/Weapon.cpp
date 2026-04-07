@@ -2,6 +2,7 @@
 
 
 #include "Weapon.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AWeapon::AWeapon()
@@ -17,11 +18,17 @@ void AWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	Player = UGameplayStatics::GetPlayerCharacter( this, 0);
 }
 
 void AWeapon::WeaponShoot()
 {
 	
+}
+
+void AWeapon::SetPlayerPointer(ACharacter* playerPointer)
+{
+
 }
 
 // Called every frame

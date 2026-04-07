@@ -2,22 +2,30 @@
 
 #include "MijnlevenPlayerController.h"
 #include "GameFramework/Pawn.h"
-#include "Blueprint/AIBlueprintHelperLibrary.h"
-
-#include "NiagaraFunctionLibrary.h"
 
 #include "Engine/World.h"
 #include "EnhancedInputComponent.h"
-#include "Navigation/PathFollowingComponent.h"
+
 
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
 #include "Mijnleven.h"
 
+
+void AMijnlevenPlayerController::BeginPlay()
+{
+	Super::BeginPlay();
+	PlayerCharacter = Cast<AMyPlayerCharacter>(GetPawn());
+}
+
 AMijnlevenPlayerController::AMijnlevenPlayerController()
 {
 	speed = 1.0f;
+	
+
 }
+
+
 
 void AMijnlevenPlayerController::SetupInputComponent()
 {
@@ -36,8 +44,14 @@ void AMijnlevenPlayerController::SetupInputComponent()
 		// Set up action bindings
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
 		{
+			//Movement bindings
 			EnhancedInputComponent->BindAction(MovementInput, ETriggerEvent::Triggered, this, &AMijnlevenPlayerController::Move);
+		
+			//Shooting bindings
+			EnhancedInputComponent->BindAction(ShootInput, ETriggerEvent::Triggered, this, &AMijnlevenPlayerController::FireBullet);
+		
 		}
+		
 		else
 		{
 			UE_LOG(LogMijnleven, Error, TEXT("'%s' Failed to find an Enhanced Input Component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
@@ -56,5 +70,13 @@ void AMijnlevenPlayerController::Move(const FInputActionValue &Value)
 	{
 		ControlledPawn->AddMovementInput(InputVector, speed, false); // add the input with the speed to the character movement
 	}
+}
+
+void AMijnlevenPlayerController::FireBullet(const FInputActionValue& Value)
+{
+if (PlayerCharacter)
+{
+	PlayerCharacter->ShootBullet();
+}
 }
 

@@ -4,6 +4,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+
 #include "GameFramework/Character.h"
 #include "MyPlayerCharacter.generated.h"
 
@@ -28,8 +30,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	
-	void Shoot();
-	
 	/** Camera boom spring arm */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USpringArmComponent* SpringArm;
@@ -41,10 +41,20 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UChildActorComponent* Weapon;
 
+
+	
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class ACPP_Bullet> BulletToSpawn;
+	
+	UPROPERTY(EditDefaultsOnly)
+	USceneComponent* BulletSpawnLocation;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	AActor* ShootBullet();
+	
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 

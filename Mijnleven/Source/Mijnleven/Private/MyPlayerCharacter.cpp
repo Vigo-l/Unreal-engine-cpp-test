@@ -3,6 +3,8 @@
 
 #include "MyPlayerCharacter.h"
 
+#include "CPP_Bullet.h"
+#include "Weapon.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 
@@ -13,13 +15,13 @@ AMyPlayerCharacter::AMyPlayerCharacter()
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
 	SpringArm->SetupAttachment(RootComponent);
 
-	SpringArm->SetRelativeRotation(FRotator(-50.0f, 0.0f, 0.0f));
+	SpringArm->SetRelativeRotation(FRotator(-90.0f, 0.0f, 0.0f));
 
-	SpringArm->TargetArmLength = 2200.0f;
+	SpringArm->TargetArmLength = 2000.0f;
 	SpringArm->bDoCollisionTest = false;
 	SpringArm->bInheritYaw = false;
 	SpringArm->bEnableCameraLag = true;
-	SpringArm->CameraLagSpeed = 0.5f;
+	SpringArm->CameraLagSpeed = 1.0f;
 
 	// create the camera
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
@@ -31,6 +33,9 @@ AMyPlayerCharacter::AMyPlayerCharacter()
 	Weapon->SetupAttachment(GetMesh(),TEXT("HandGrip_R"));
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	
+	BulletSpawnLocation = CreateDefaultSubobject<USceneComponent>(TEXT("Bullet Spawn Point"));
+	BulletSpawnLocation->SetupAttachment(GetMesh());
 
 }
 
@@ -39,11 +44,26 @@ void AMyPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	AWeapon* weaponpntr = Cast<AWeapon>(Weapon->GetChildActor());
+	if (weaponpntr)
+	{
+		weaponpntr->SetPlayerPointer(this);
+	}
+	
 }
 
-void AMyPlayerCharacter::Shoot()
-{
 
+AActor* AMyPlayerCharacter::ShootBullet()
+{
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.Instigator = this;
+	
+	AActor* SpawnedActor = GetWorld()->SpawnActor<ACPP_Bullet>(
+		BulletToSpawn,
+		BulletSpawnLocation->GetComponentLocation(),
+		GetActorRotation(),
+		SpawnParams );
+	return SpawnedActor;
 }
 
 // Called every frame

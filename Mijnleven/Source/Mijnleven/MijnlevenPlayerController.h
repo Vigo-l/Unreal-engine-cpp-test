@@ -6,6 +6,7 @@
 //#include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
 #include "InputActionValue.h"
+#include "MyPlayerCharacter.h"
 #include "MijnlevenPlayerController.generated.h"
 
 class UNiagaraSystem;
@@ -25,6 +26,7 @@ class AMijnlevenPlayerController : public APlayerController
 	GENERATED_BODY()
 
 protected:
+	virtual void BeginPlay() override;
 	/** MappingContext */
 	UPROPERTY(EditAnywhere, Category="Input")
 	TObjectPtr<UInputMappingContext> DefaultMappingContext; //gets the default input context
@@ -33,6 +35,9 @@ protected:
 	TObjectPtr<UInputAction> MovementInput; //create the movement input that calls the function
 	
 
+	UPROPERTY(EditAnywhere, Category="Input") 
+	TObjectPtr<UInputAction> ShootInput;
+	
 
 	/** True if the controlled character should navigate to the mouse cursor. */
 	uint32 bMoveToMouseCursor : 1;
@@ -60,6 +65,10 @@ protected:
 	float speed; // variable to change the speed
 	
 	void Move(const FInputActionValue &Value);//function that gets called when the move input is triggers
+
+	void FireBullet(const FInputActionValue &Value);
+	
+	class AMyPlayerCharacter* PlayerCharacter;
 };
 
 

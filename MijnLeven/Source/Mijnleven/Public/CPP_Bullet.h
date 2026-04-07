@@ -3,33 +3,34 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "GameFramework/Actor.h"
-#include "Components/StaticMeshComponent.h"
-#include "Weapon.generated.h"
+
+
+#include "CPP_Bullet.generated.h"
 
 UCLASS()
-class MIJNLEVEN_API AWeapon : public AActor
+class MIJNLEVEN_API ACPP_Bullet : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AWeapon();
-	void SetPlayerPointer(ACharacter* playerPointer);
+	ACPP_Bullet();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+UPROPERTY(EditAnywhere);
+	class UNiagaraComponent* BulletFX;
+	UPROPERTY(EditAnywhere);
+	class USphereComponent* CollisionSphere;
 	
-	void WeaponShoot();
 	
-	ACharacter* Player;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	
-	UPROPERTY(EditAnywhere)
-	UStaticMeshComponent* StaticMeshComponent;
 
 };
