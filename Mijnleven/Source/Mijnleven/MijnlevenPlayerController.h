@@ -69,6 +69,13 @@ protected:
 	void FireBullet(const FInputActionValue &Value);
 	
 	class AMyPlayerCharacter* PlayerCharacter;
+	
+	bool CanFire = true;
+	
+	UPROPERTY(EditAnywhere)
+	float FireRate = 0.2f;
+	
+	void setFireRate(bool Value);
 };
 
 

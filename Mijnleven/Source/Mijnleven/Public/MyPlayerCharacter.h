@@ -41,9 +41,10 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UChildActorComponent* Weapon;
 
-
+UPROPERTY(EditAnywhere)
+	float BulletSpeed;
 	
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	TSubclassOf<class ACPP_Bullet> BulletToSpawn;
 	
 	UPROPERTY(EditDefaultsOnly)

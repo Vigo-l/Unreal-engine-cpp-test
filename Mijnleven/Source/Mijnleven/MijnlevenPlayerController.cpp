@@ -22,6 +22,7 @@ AMijnlevenPlayerController::AMijnlevenPlayerController()
 {
 	speed = 1.0f;
 	
+	
 
 }
 
@@ -74,9 +75,18 @@ void AMijnlevenPlayerController::Move(const FInputActionValue &Value)
 
 void AMijnlevenPlayerController::FireBullet(const FInputActionValue& Value)
 {
-if (PlayerCharacter)
+if (PlayerCharacter && CanFire)
 {
 	PlayerCharacter->ShootBullet();
+	CanFire = false;
+	FTimerHandle timerHandle;
+	FTimerDelegate delegate = FTimerDelegate::CreateUObject(this, &AMijnlevenPlayerController::setFireRate, true);
+	GetWorldTimerManager().SetTimer(timerHandle, delegate, FireRate, false);
 }
+}
+
+void AMijnlevenPlayerController::setFireRate(bool Value)
+{
+	CanFire = Value;
 }
 

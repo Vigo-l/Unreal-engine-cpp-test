@@ -10,34 +10,42 @@
   <component name="ChangeListManager">
     <list default="true" id="95f6dfc6-abb3-4471-9aac-05e7aaeddcf3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP_BaseCharacterController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP_BaseCharacterController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/BP_Bullet.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/BP_Bullet.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Private/CPP_Bullet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Private/CPP_Bullet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Public/CPP_Bullet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Public/CPP_Bullet.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Private/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Private/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Public/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Public/Weapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Unreal engine Cpp problems documented.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Unreal engine Cpp problems documented.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
+  </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="35928" />
+    <option name="cachedIndexableFilesCount" value="35930" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Mijnleven/Private/ProjectileMovementTest.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Mijnleven/Public/ProjectileMovementTest.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -114,6 +122,8 @@
       <workItem from="1774364925095" duration="138000" />
       <workItem from="1774607006022" duration="9000" />
       <workItem from="1774957931885" duration="201000" />
+      <workItem from="1776771848615" duration="1515000" />
+      <workItem from="1776773519937" duration="5276000" />
     </task>
     <servers />
   </component>

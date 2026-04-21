@@ -3,23 +3,21 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/SphereComponent.h"
-
 #include "GameFramework/Actor.h"
-
-
-#include "CPP_Bullet.generated.h"
+#include "ProjectileMovementTest.generated.h"
 
 UCLASS()
-class MIJNLEVEN_API ACPP_Bullet : public AActor
+class MIJNLEVEN_API AProjectileMovementTest : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ACPP_Bullet();
+	AProjectileMovementTest();
 
 protected:
+	// Called when the game starts or when spawned
+	
 	virtual void BeginPlay() override;
 	
 	UPROPERTY(EditAnywhere)
@@ -27,8 +25,6 @@ protected:
 	
 	UPROPERTY(EditDefaultsOnly)
 	class UProjectileMovementComponent* projectileMovement;
-	
-	
 
 public:	
 	// Called every frame

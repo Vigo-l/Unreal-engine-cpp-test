@@ -1,38 +1,34 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "CPP_Bullet.h"
-#include "Components/SphereComponent.h"
-#include "NiagaraComponent.h"
+#include "ProjectileMovementTest.h"
+
 #include "GameFramework/ProjectileMovementComponent.h"
 
-
 // Sets default values
-ACPP_Bullet::ACPP_Bullet()
+AProjectileMovementTest::AProjectileMovementTest()
 {
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+ 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	projectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement"));
 	projectileMovement->ProjectileGravityScale = 0;
 	projectileMovement->MaxSpeed = 1000;
 	projectileMovement->InitialSpeed = 1000;
-	projectileMovement->Velocity = FVector(100,100,100);
 	
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	SetRootComponent(StaticMeshComponent);
-
 }
 
 // Called when the game starts or when spawned
-void ACPP_Bullet::BeginPlay()
+void AProjectileMovementTest::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void ACPP_Bullet::Tick(float DeltaTime)
+void AProjectileMovementTest::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 

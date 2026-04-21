@@ -7,6 +7,7 @@
 #include "Weapon.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AMyPlayerCharacter::AMyPlayerCharacter()
@@ -22,7 +23,18 @@ AMyPlayerCharacter::AMyPlayerCharacter()
 	SpringArm->bInheritYaw = false;
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagSpeed = 1.0f;
+	
+	
+	bUseControllerRotationPitch = false;
+	bUseControllerRotationYaw = false;
+	bUseControllerRotationRoll = false;
 
+	// Configure character movement
+	GetCharacterMovement()->bOrientRotationToMovement = true; // Rotate character to moving direction
+	GetCharacterMovement()->RotationRate = FRotator(0.f, 640.f, 0.f);
+	GetCharacterMovement()->bConstrainToPlane = true;
+	GetCharacterMovement()->bSnapToPlaneAtStart = true;
+	
 	// create the camera
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm);
@@ -57,12 +69,14 @@ AActor* AMyPlayerCharacter::ShootBullet()
 {
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.Instigator = this;
+	FVector testvelocity = GetActorForwardVector() * BulletSpeed;
 	
 	AActor* SpawnedActor = GetWorld()->SpawnActor<ACPP_Bullet>(
 		BulletToSpawn,
 		BulletSpawnLocation->GetComponentLocation(),
 		GetActorRotation(),
 		SpawnParams );
+	
 	return SpawnedActor;
 }
 
