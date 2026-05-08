@@ -64,6 +64,19 @@ void AMyPlayerCharacter::BeginPlay()
 	
 }
 
+float AMyPlayerCharacter::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
+	class AController* EventInstigator, AActor* DamageCauser)
+{
+	HP -= DamageAmount;
+	if (HP <= 0)
+	{
+		Destroy();
+	}
+	return DamageAmount;
+	
+	
+}
+
 
 AActor* AMyPlayerCharacter::ShootBullet()
 {

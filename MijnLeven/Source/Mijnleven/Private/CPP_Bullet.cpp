@@ -5,6 +5,7 @@
 #include "Components/SphereComponent.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
+#include "kismet/gameplayStatics.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 
 
@@ -41,6 +42,8 @@ void ACPP_Bullet::BeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* Othe
 {
 	UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ImpactParticles, GetActorLocation());
 	BulletHit();
+	AController* PlayerC = GetInstigator()->GetController();
+	UGameplayStatics::ApplyDamage(OtherActor, BaseDamage, PlayerC, this, DamageType);
 	Destroy();
 	
 	

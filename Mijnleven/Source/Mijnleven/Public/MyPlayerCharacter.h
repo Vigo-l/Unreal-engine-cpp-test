@@ -41,6 +41,16 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UChildActorComponent* Weapon;
 
+	virtual float TakeDamage
+	(
+		float DamageAmount,
+		struct FDamageEvent const& DamageEvent,
+		class AController* EventInstigator,
+		AActor* DamageCauser
+		) override;
+	
+	UPROPERTY(EditAnywhere)
+	float HP = 50;
 UPROPERTY(EditAnywhere)
 	float BulletSpeed;
 	
