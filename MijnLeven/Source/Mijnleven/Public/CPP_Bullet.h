@@ -3,9 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "MijnlevenPlayerController.h"
 #include "Components/SphereComponent.h"
 
-#include "GameFramework/Actor.h"
+
 
 
 #include "CPP_Bullet.generated.h"
@@ -25,9 +26,24 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* StaticMeshComponent;
 	
+	UPROPERTY(EditAnywhere)
+	USphereComponent* SphereComponent;
+	
 	UPROPERTY(EditDefaultsOnly)
 	class UProjectileMovementComponent* projectileMovement;
 	
+	UFUNCTION()
+	void BeginOverlap(UPrimitiveComponent* OverlappedComp,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp, 
+		int32 OtherBodyIndex,
+		bool bFromSweep, 
+		const FHitResult& SweepResult);
+	
+	virtual void BulletHit();
+	
+	UPROPERTY(EditDefaultsOnly)
+	UNiagaraSystem* ImpactParticles;
 	
 
 public:	

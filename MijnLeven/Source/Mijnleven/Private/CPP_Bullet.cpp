@@ -4,6 +4,7 @@
 #include "CPP_Bullet.h"
 #include "Components/SphereComponent.h"
 #include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 
 
@@ -21,6 +22,9 @@ ACPP_Bullet::ACPP_Bullet()
 	
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	SetRootComponent(StaticMeshComponent);
+	
+	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
+	SphereComponent->SetupAttachment(StaticMeshComponent);
 
 }
 
@@ -28,6 +32,22 @@ ACPP_Bullet::ACPP_Bullet()
 void ACPP_Bullet::BeginPlay()
 {
 	Super::BeginPlay();
+	SphereComponent->OnComponentBeginOverlap.AddDynamic(this,&ACPP_Bullet::BeginOverlap);
+	
+}
+
+void ACPP_Bullet::BeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+	int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ImpactParticles, GetActorLocation());
+	BulletHit();
+	Destroy();
+	
+	
+}
+
+void ACPP_Bullet::BulletHit()
+{
 	
 }
 
