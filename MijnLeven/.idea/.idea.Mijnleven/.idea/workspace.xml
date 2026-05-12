@@ -10,8 +10,18 @@
   <component name="ChangeListManager">
     <list default="true" id="95f6dfc6-abb3-4471-9aac-05e7aaeddcf3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprint/MyProjectileMovementTest.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Bullet.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Bullet.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Anims/Pistol/Jog/MF_Pistol_Jog_Fwd.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TopDown/Lvl_TopDown/0/RH/MCHQ72D5QGTSMJ8BJCYK25.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/TopDown/Lvl_TopDown/0/RH/MCHQ72D5QGTSMJ8BJCYK25.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Private/ProjectileMovementTest.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Public/ProjectileMovementTest.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +129,9 @@
       <workItem from="1776771848615" duration="1515000" />
       <workItem from="1776773519937" duration="5276000" />
       <workItem from="1778224237375" duration="2734000" />
-      <workItem from="1778240241242" duration="3359000" />
+      <workItem from="1778240241242" duration="4298000" />
+      <workItem from="1778586062836" duration="731000" />
+      <workItem from="1778587044179" duration="6610000" />
     </task>
     <servers />
   </component>

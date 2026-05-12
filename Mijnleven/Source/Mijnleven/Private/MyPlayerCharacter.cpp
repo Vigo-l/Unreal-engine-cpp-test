@@ -2,9 +2,10 @@
 
 
 #include "MyPlayerCharacter.h"
-
 #include "CPP_Bullet.h"
+#include "MijnlevenCharacter.h"
 #include "Weapon.h"
+
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -80,6 +81,9 @@ float AMyPlayerCharacter::TakeDamage(float DamageAmount, struct FDamageEvent con
 
 AActor* AMyPlayerCharacter::ShootBullet()
 {
+	
+	SetShootingTrue();
+	
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.Instigator = this;
 	FVector testvelocity = GetActorForwardVector() * BulletSpeed;
@@ -89,6 +93,10 @@ AActor* AMyPlayerCharacter::ShootBullet()
 		BulletSpawnLocation->GetComponentLocation(),
 		GetActorRotation(),
 		SpawnParams );
+	
+	FTimerHandle timerHandle;
+	FTimerDelegate delegate = FTimerDelegate::CreateUObject(this, &AMijnlevenCharacter::SetShootingFalse);
+	GetWorldTimerManager().SetTimer(timerHandle, delegate, .2f, false);
 	
 	return SpawnedActor;
 }

@@ -77,11 +77,13 @@ void AMijnlevenPlayerController::FireBullet(const FInputActionValue& Value)
 {
 if (PlayerCharacter && CanFire)
 {
+
 	PlayerCharacter->ShootBullet();
 	CanFire = false;
 	FTimerHandle timerHandle;
 	FTimerDelegate delegate = FTimerDelegate::CreateUObject(this, &AMijnlevenPlayerController::setFireRate, true);
 	GetWorldTimerManager().SetTimer(timerHandle, delegate, FireRate, false);
+	
 }
 }
 

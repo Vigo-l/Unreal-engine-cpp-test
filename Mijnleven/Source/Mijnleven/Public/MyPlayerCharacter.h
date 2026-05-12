@@ -4,6 +4,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "MijnlevenCharacter.h"
 
 
 #include "GameFramework/Character.h"
@@ -13,7 +14,7 @@ class USpringArmComponent;
 class UCameraComponent;
 
 UCLASS()
-class MIJNLEVEN_API AMyPlayerCharacter : public ACharacter
+class MIJNLEVEN_API AMyPlayerCharacter : public AMijnlevenCharacter
 {
 	GENERATED_BODY()
 
