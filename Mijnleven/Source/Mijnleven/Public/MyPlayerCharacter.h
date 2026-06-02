@@ -4,17 +4,16 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "MijnlevenCharacter.h"
-
-
-#include "GameFramework/Character.h"
+#include "BaseCharacter.h"
+#include "Components/ChildActorComponent.h"
 #include "MyPlayerCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
+struct FInputActionValue;
 
 UCLASS()
-class MIJNLEVEN_API AMyPlayerCharacter : public AMijnlevenCharacter
+class MIJNLEVEN_API AMyPlayerCharacter : public ABaseCharacter
 {
 	GENERATED_BODY()
 
@@ -22,13 +21,9 @@ class MIJNLEVEN_API AMyPlayerCharacter : public AMijnlevenCharacter
 
 	
 public:
-	// Sets default values for this character's properties
 	AMyPlayerCharacter();
-	
-
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	
 	/** Camera boom spring arm */
@@ -42,32 +37,12 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UChildActorComponent* Weapon;
 
-	virtual float TakeDamage
-	(
-		float DamageAmount,
-		struct FDamageEvent const& DamageEvent,
-		class AController* EventInstigator,
-		AActor* DamageCauser
-		) override;
-	
-	UPROPERTY(EditAnywhere)
-	float HP = 50;
-UPROPERTY(EditAnywhere)
-	float BulletSpeed;
-	
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<class ACPP_Bullet> BulletToSpawn;
-	
-	UPROPERTY(EditDefaultsOnly)
-	USceneComponent* BulletSpawnLocation;
-
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	AActor* ShootBullet();
-	
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	void Move(const FInputActionValue& Value);
 
+	void FireBullet(const FInputActionValue& Value);
+	
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 };

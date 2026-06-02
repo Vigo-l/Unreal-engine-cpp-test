@@ -56,3 +56,5 @@ void AMijnlevenCharacter::SetShootingFalse()
 {
 	IsShooting =false;
 }
+
+

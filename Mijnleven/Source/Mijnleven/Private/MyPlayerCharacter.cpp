@@ -1,16 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "MyPlayerCharacter.h"
-#include "CPP_Bullet.h"
-#include "MijnlevenCharacter.h"
 #include "Weapon.h"
 
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
-#include "GameFramework/CharacterMovementComponent.h"
+#include "InputActionValue.h"
 
-// Sets default values
 AMyPlayerCharacter::AMyPlayerCharacter()
 {
 	// create the spring arm
@@ -25,17 +19,6 @@ AMyPlayerCharacter::AMyPlayerCharacter()
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagSpeed = 1.0f;
 	
-	
-	bUseControllerRotationPitch = false;
-	bUseControllerRotationYaw = false;
-	bUseControllerRotationRoll = false;
-
-	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Rotate character to moving direction
-	GetCharacterMovement()->RotationRate = FRotator(0.f, 640.f, 0.f);
-	GetCharacterMovement()->bConstrainToPlane = true;
-	GetCharacterMovement()->bSnapToPlaneAtStart = true;
-	
 	// create the camera
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm);
@@ -43,16 +26,11 @@ AMyPlayerCharacter::AMyPlayerCharacter()
 	Camera->SetFieldOfView(75.0f);
 	
 	Weapon = CreateDefaultSubobject<UChildActorComponent>(TEXT("Weapon"));
-	Weapon->SetupAttachment(GetMesh(),TEXT("HandGrip_R"));
-	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-	
-	BulletSpawnLocation = CreateDefaultSubobject<USceneComponent>(TEXT("Bullet Spawn Point"));
-	BulletSpawnLocation->SetupAttachment(GetMesh());
+	Weapon->SetupAttachment(GetMesh(), TEXT("HandGrip_R"));
 
+	BulletSpawnLocation->SetupAttachment(GetMesh());
 }
 
-// Called when the game starts or when spawned
 void AMyPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
@@ -62,55 +40,35 @@ void AMyPlayerCharacter::BeginPlay()
 	{
 		weaponpntr->SetPlayerPointer(this);
 	}
-	
 }
 
-float AMyPlayerCharacter::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
-	class AController* EventInstigator, AActor* DamageCauser)
-{
-	HP -= DamageAmount;
-	if (HP <= 0)
-	{
-		Destroy();
-	}
-	return DamageAmount;
-	
-	
-}
-
-
-AActor* AMyPlayerCharacter::ShootBullet()
-{
-	
-	SetShootingTrue();
-	
-	FActorSpawnParameters SpawnParams;
-	SpawnParams.Instigator = this;
-	FVector testvelocity = GetActorForwardVector() * BulletSpeed;
-	
-	AActor* SpawnedActor = GetWorld()->SpawnActor<ACPP_Bullet>(
-		BulletToSpawn,
-		BulletSpawnLocation->GetComponentLocation(),
-		GetActorRotation(),
-		SpawnParams );
-	
-	FTimerHandle timerHandle;
-	FTimerDelegate delegate = FTimerDelegate::CreateUObject(this, &AMijnlevenCharacter::SetShootingFalse);
-	GetWorldTimerManager().SetTimer(timerHandle, delegate, .2f, false);
-	
-	return SpawnedActor;
-}
-
-// Called every frame
 void AMyPlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
-// Called to bind functionality to input
+void AMyPlayerCharacter::Move(const FInputActionValue& Value)
+{
+	FVector2D MovementVector = Value.Get<FVector2D>();
+	FVector InputVector = FVector(MovementVector, 0.0f);
+
+	MoveInDirection(InputVector);
+}
+
+void AMyPlayerCharacter::FireBullet(const FInputActionValue& Value)
+{
+	FVector Direction = FVector(Value.Get<FVector2D>(), 0.0f);
+
+	if (Direction.IsNearlyZero())
+	{
+		Direction = GetActorForwardVector();
+	}
+
+	ShootBullet(Direction);
+}
+
 void AMyPlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
 }
+

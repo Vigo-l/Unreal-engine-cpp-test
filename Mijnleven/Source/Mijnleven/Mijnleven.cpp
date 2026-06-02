@@ -5,5 +5,4 @@
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Mijnleven, "Mijnleven" );
 
-DEFINE_LOG_CATEGORY(LogMijnleven)
- 
+DEFINE_LOG_CATEGORY(LogMijnleven);

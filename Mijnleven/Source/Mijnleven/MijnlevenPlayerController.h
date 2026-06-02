@@ -18,7 +18,7 @@ DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 /**
  *  Player controller for a top-down perspective game.
- *  Implements point and click based controls
+ *  Handles player input and forwards it to the controlled character.
  */
 UCLASS(abstract)
 class AMijnlevenPlayerController : public APlayerController
@@ -27,55 +27,34 @@ class AMijnlevenPlayerController : public APlayerController
 
 protected:
 	virtual void BeginPlay() override;
+
 	/** MappingContext */
 	UPROPERTY(EditAnywhere, Category="Input")
-	TObjectPtr<UInputMappingContext> DefaultMappingContext; //gets the default input context
+	TObjectPtr<UInputMappingContext> DefaultMappingContext;
 	
 	UPROPERTY(EditAnywhere, Category="Input") 
-	TObjectPtr<UInputAction> MovementInput; //create the movement input that calls the function
+	TObjectPtr<UInputAction> MovementInput;
 	
-
 	UPROPERTY(EditAnywhere, Category="Input") 
 	TObjectPtr<UInputAction> ShootInput;
-	
-
-	/** True if the controlled character should navigate to the mouse cursor. */
-	uint32 bMoveToMouseCursor : 1;
-
-	/** Set to true if we're using touch input */
-	uint32 bIsTouch : 1;
-
-	/** Saved location of the character movement destination */
-	FVector CachedDestination;
-
-	/** Time that the click input has been pressed */
-	float FollowTime = 0.0f;
 
 public:
-
 	/** Constructor */
 	AMijnlevenPlayerController();
-	
-protected:
 
+protected:
 	/** Initialize input bindings */
 	virtual void SetupInputComponent() override;
-	
-	UPROPERTY(EditAnywhere)
-	float speed; // variable to change the speed
-	
-	void Move(const FInputActionValue &Value);//function that gets called when the move input is triggers
 
-	void FireBullet(const FInputActionValue &Value);
+	void Move(const FInputActionValue& Value);
+
+	void FireBullet(const FInputActionValue& Value);
 	
 	class AMyPlayerCharacter* PlayerCharacter;
 	
-	bool CanFire = true;
-	
-	UPROPERTY(EditAnywhere)
-	float FireRate = 0.2f;
-	
-	void setFireRate(bool Value);
+	void SetShootingTrue();
+
+	void SetShootingFalse();
 };
 
 

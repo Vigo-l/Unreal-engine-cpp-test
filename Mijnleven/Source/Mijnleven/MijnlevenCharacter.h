@@ -48,6 +48,11 @@ public:
 	bool IsShooting;
 	void SetShootingTrue();
 	void SetShootingFalse();
-
+	
+	FRotator MoveRot;
+	FRotator ShootRot;
+	
+	
+	
 };
 

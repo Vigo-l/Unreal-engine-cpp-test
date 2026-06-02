@@ -15,18 +15,13 @@
 void AMijnlevenPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
+
 	PlayerCharacter = Cast<AMyPlayerCharacter>(GetPawn());
 }
 
 AMijnlevenPlayerController::AMijnlevenPlayerController()
 {
-	speed = 1.0f;
-	
-	
-
 }
-
-
 
 void AMijnlevenPlayerController::SetupInputComponent()
 {
@@ -45,50 +40,50 @@ void AMijnlevenPlayerController::SetupInputComponent()
 		// Set up action bindings
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
 		{
-			//Movement bindings
+			// Movement bindings
 			EnhancedInputComponent->BindAction(MovementInput, ETriggerEvent::Triggered, this, &AMijnlevenPlayerController::Move);
 		
-			//Shooting bindings
+			// Shooting bindings
 			EnhancedInputComponent->BindAction(ShootInput, ETriggerEvent::Triggered, this, &AMijnlevenPlayerController::FireBullet);
-		
+			EnhancedInputComponent->BindAction(ShootInput, ETriggerEvent::Started, this, &AMijnlevenPlayerController::SetShootingTrue);
+			EnhancedInputComponent->BindAction(ShootInput, ETriggerEvent::Completed, this, &AMijnlevenPlayerController::SetShootingFalse);
 		}
-		
 		else
 		{
-			UE_LOG(LogMijnleven, Error, TEXT("'%s' Failed to find an Enhanced Input Component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
+			UE_LOG(LogMijnleven, Error, TEXT("'%s' Failed to find an Enhanced Input Component!"), *GetNameSafe(this));
 		}
 	}
 }
 
-
-//Move the character
-void AMijnlevenPlayerController::Move(const FInputActionValue &Value)
+void AMijnlevenPlayerController::Move(const FInputActionValue& Value)
 {
-	FVector2D MovementVector = Value.Get<FVector2D>(); //Transform the input action value to a vector 2d
-	FVector InputVector = FVector(MovementVector, 0 ); // Transform the vector 2d to a vector 3d for the 3d space
-
-	if (APawn* ControlledPawn = GetPawn())
+	if (PlayerCharacter)
 	{
-		ControlledPawn->AddMovementInput(InputVector, speed, false); // add the input with the speed to the character movement
+		PlayerCharacter->Move(Value);
 	}
 }
 
 void AMijnlevenPlayerController::FireBullet(const FInputActionValue& Value)
 {
-if (PlayerCharacter && CanFire)
-{
-
-	PlayerCharacter->ShootBullet();
-	CanFire = false;
-	FTimerHandle timerHandle;
-	FTimerDelegate delegate = FTimerDelegate::CreateUObject(this, &AMijnlevenPlayerController::setFireRate, true);
-	GetWorldTimerManager().SetTimer(timerHandle, delegate, FireRate, false);
-	
-}
+	if (PlayerCharacter)
+	{
+		PlayerCharacter->FireBullet(Value);
+	}
 }
 
-void AMijnlevenPlayerController::setFireRate(bool Value)
+void AMijnlevenPlayerController::SetShootingTrue()
 {
-	CanFire = Value;
+	if (PlayerCharacter)
+	{
+		PlayerCharacter->SetShootingTrue();
+	}
+}
+
+void AMijnlevenPlayerController::SetShootingFalse()
+{
+	if (PlayerCharacter)
+	{
+		PlayerCharacter->SetShootingFalse();
+	}
 }
 
