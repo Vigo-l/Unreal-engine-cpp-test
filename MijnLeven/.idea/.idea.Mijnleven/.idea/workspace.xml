@@ -12,11 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95f6dfc6-abb3-4471-9aac-05e7aaeddcf3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Bullet.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Bullet.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Unreal engine Cpp problems documented.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Unreal engine Cpp problems documented.docx" afterDir="false" />
-    </list>
+    <list default="true" id="95f6dfc6-abb3-4471-9aac-05e7aaeddcf3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,7 +232,7 @@
       <workItem from="1780404875212" duration="40000" />
       <workItem from="1780405149160" duration="494000" />
       <workItem from="1780405753152" duration="286000" />
-      <workItem from="1781009684134" duration="2341000" />
+      <workItem from="1781009684134" duration="2587000" />
     </task>
     <servers />
   </component>
