@@ -13,22 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95f6dfc6-abb3-4471-9aac-05e7aaeddcf3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mijnleven/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Input/IA_Shoot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Input/IA_Shoot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprint/ABP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/ABP_Player.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprint/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/LevelPrototyping/Materials/MI_PrototypeGrid_TopDark.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/LevelPrototyping/Materials/MI_PrototypeGrid_TopDark.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/LevelPrototyping/Materials/M_PrototypeGrid.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/LevelPrototyping/Materials/M_PrototypeGrid.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TopDown/Input/IMC_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/TopDown/Input/IMC_Default.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/TopDown/Lvl_TopDown/0/RH/MCHQ72D5QGTSMJ8BJCYK25.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mijnleven.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/Mijnleven.uproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Mijnleven.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Mijnleven.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/MijnlevenPlayerController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Private/MyPlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Mijnleven/Public/MyPlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Bullet.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Bullet.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Unreal engine Cpp problems documented.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Unreal engine Cpp problems documented.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +26,7 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="4024" />
+    <option name="cachedIndexableFilesCount" value="4025" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -249,6 +236,7 @@
       <workItem from="1780404875212" duration="40000" />
       <workItem from="1780405149160" duration="494000" />
       <workItem from="1780405753152" duration="286000" />
+      <workItem from="1781009684134" duration="2341000" />
     </task>
     <servers />
   </component>
